@@ -2,6 +2,8 @@ import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ReservationService } from '../reservation/reservation.service';
+import { Reservation } from '../models/reservation';
 
 @Component({
   selector: 'app-reservation-form',
@@ -11,7 +13,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ReservationFormComponent implements OnInit {
   reservationForm: FormGroup = new FormGroup({});
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder, 
+    private reservationService : ReservationService
+    ) {}
 
   ngOnInit(): void {
     this.reservationForm = this.formBuilder.group({
@@ -25,20 +30,11 @@ export class ReservationFormComponent implements OnInit {
 
   onSubmit() {
     if (this.reservationForm.valid) {
-      console.log('IS VALID');
-    } else {
-      alert("form isn't correctly compiled");
+
+     let reservation : Reservation = this.reservationForm.value;
+
+     this.reservationService.addReservation(reservation);
     }
   }
 }
 
-/*
-
-constructor > quando instazio nuovo form inietta anche il form builder
-
-
-- on submit > if form is valid ?
-- quando? on init
-- constructor >  form builder
-
-*/
