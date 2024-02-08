@@ -14,9 +14,9 @@ export class ReservationFormComponent implements OnInit {
   reservationForm: FormGroup = new FormGroup({});
 
   constructor(
-    private formBuilder: FormBuilder, 
-    private reservationService : ReservationService
-    ) {}
+    private formBuilder: FormBuilder,
+    private reservationService: ReservationService
+  ) {}
 
   ngOnInit(): void {
     this.reservationForm = this.formBuilder.group({
@@ -24,17 +24,14 @@ export class ReservationFormComponent implements OnInit {
       checkOutDate: ['', [Validators.required]],
       guestName: ['', [Validators.required]],
       guestEmail: ['', [Validators.required, Validators.email]],
-      roomNumber: ['', [Validators.required]],
     });
   }
 
   onSubmit() {
     if (this.reservationForm.valid) {
+      let reservation: Reservation = this.reservationForm.value;
 
-     let reservation : Reservation = this.reservationForm.value;
-
-     this.reservationService.addReservation(reservation);
+      this.reservationService.addReservation(reservation);
     }
   }
 }
-

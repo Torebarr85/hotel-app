@@ -1,1 +1,17 @@
-<p>reservation-list works!</p>
+ 
+
+
+ 
+<ul *ngIf="reservations.length else noReservations">
+    <li *ngFor="let res of reservations">
+        {{res.guestName}}
+        {{res.guestEmail}}
+        {{res.checkInDate}}
+        {{res.checkOutDate}}
+        
+    </li>
+</ul>
+
+
+
+<ng-template  #noReservations><h1>there are any reservations here!</h1></ng-template> 
