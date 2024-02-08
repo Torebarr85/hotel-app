@@ -1,17 +1,73 @@
+
+
+<app-home></app-home>
+<div
+  class="bg-gray-100 fixed flex-col justify-center items-center  w-full "
+>
  
+  <div class="bg-white rounded-lg shadow-lg w-full">
+    <ul *ngIf="reservations.length; else noReservations">
+      <li *ngFor="let res of reservations" class="py-3 sm:py-4">
+        <div class="flex flex-row items-center space-between ">
+          <div class="flex flex-row px-2 mx-2">
+            <img
+              class="w-8 h-8 rounded-full"
+              src="../../assets/avatar.png"
+              alt="Batman avatar"
+            />
+          </div>
+          <div class="flex-1 min-w-0">
+            <p
+              class="text-sm font-medium text-gray-900 truncate dark:text-white"
+            >
+              name:
+            </p>
+            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+              {{ res.guestEmail }}
+            </p>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p
+              class="text-sm font-medium text-gray-900 truncate dark:text-white"
+            >
+              email:
+            </p>
+            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+              {{ res.guestEmail }}
+            </p>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p
+              class="text-sm font-medium text-grey-900 truncate dark:text-white"
+            >
+              check-in date:
+            </p>
+            <p class="text-sm text-green-500 truncate dark:text-gray-400">
+              {{ res.checkInDate }}
+            </p>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p
+              class="text-sm font-medium text-grey-900 truncate dark:text-white"
+            >
+              check-out date:
+            </p>
+            <p class="text-sm text-red-500 truncate dark:text-gray-400">
+              {{ res.checkOutDate }}
+            </p>
+          </div>
+           <button type="submit" (click)="deleteReservation(res.id)" 
+        class="uppercase text-white hover:text-white bg-red-500 hover:bg-red-900 rounded-lg text-xs px-5 py-2.5 mr-4" > delete
+      </button>
+              <button type="button" [routerLink]="['/edit', res.id]" 
+        class="uppercase text-white hover:text-white bg-blue-500 hover:bg-blue-900 rounded-lg text-xs px-5 py-2.5 mr-4" > edit
+      </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
 
-
- 
-<ul *ngIf="reservations.length else noReservations">
-    <li *ngFor="let res of reservations">
-        {{res.guestName}}
-        {{res.guestEmail}}
-        {{res.checkInDate}}
-        {{res.checkOutDate}}
-        
-    </li>
-</ul>
-
-
-
-<ng-template  #noReservations><h1>there are any reservations here!</h1></ng-template> 
+<ng-template #noReservations
+  ><h1>there are any reservations here!</h1></ng-template
+>
