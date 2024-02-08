@@ -1,9 +1,10 @@
-
+ <h1 class="text-center text-2xl p-4">RESERVATIONS</h1>
 <div
   class="bg-gray-100 flex justify-center items-center  h-screen"
 >
- 
+  
   <div class="bg-white rounded-lg shadow-lg w-[80%]">
+  
     <ul *ngIf="reservations.length; else noReservations">
       <li *ngFor="let res of reservations" class="py-3 sm:py-4">
         <div class="flex flex-row items-center space-between ">
@@ -67,5 +68,15 @@
 </div>
 
 <ng-template #noReservations
-  ><h1>there are any reservations here!</h1></ng-template
+  > 
+  <div class="bg-white rounded-lg shadow-lg w-[80%]">
+    <div class="flex flex-col justify-center items-center">
+      <img
+              class="w-12 h-12 rounded-full"
+              src="../../assets/avatar.png"
+              alt="Batman avatar"
+            />
+    <h1>Hey, seems there are any reservations here!</h1></div>
+  </div>
+  </ng-template
 >
