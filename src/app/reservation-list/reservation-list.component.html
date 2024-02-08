@@ -1,11 +1,9 @@
 
-
-<app-home></app-home>
 <div
-  class="bg-gray-100 fixed flex-col justify-center items-center  w-full "
+  class="bg-gray-100 flex justify-center items-center  h-screen"
 >
  
-  <div class="bg-white rounded-lg shadow-lg w-full">
+  <div class="bg-white rounded-lg shadow-lg w-[80%]">
     <ul *ngIf="reservations.length; else noReservations">
       <li *ngFor="let res of reservations" class="py-3 sm:py-4">
         <div class="flex flex-row items-center space-between ">
