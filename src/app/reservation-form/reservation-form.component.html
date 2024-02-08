@@ -1,47 +1,41 @@
 <div class="bg-gray-100 flex justify-center items-center relative w-full h-screen">
-  <div class="bg-white p-6 rounded-lg shadow-lg">
+  <div class="bg-white rounded-lg shadow-lg w-96">
     <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
-      <div class="mb-4">
+      <div class="flex flex-row ">
+      <div class="p-4">
         <label class="block text-gray-700 text-sm font-bold mb-2">Check-in:</label>
         <input type="date"
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           formControlName="checkInDate" />
           <div *ngIf="reservationForm.get('checkInDate')?.invalid && reservationForm.get('checkInDate')?.touched" 
-          class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert" >Check-in date is required!</div>
+          class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-2" role="alert" >Field required!</div>
       </div>
-      <div class="mb-4">
+      <div class="p-4">
         <label class="block text-gray-700 text-sm font-bold mb-2">Check-out:</label>
         <input type="date"
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           formControlName="checkOutDate" />
           <div *ngIf="reservationForm.get('checkOutDate')?.invalid && reservationForm.get('checkOutDate')?.touched" 
-          class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert" >Check-Out date is required!</div>
-      </div>
-      <div class="mb-4">
+          class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-2" role="alert" >Field required!</div>
+      </div></div>
+      <div class="p-4">
         <label class="block text-gray-700 text-sm font-bold mb-2">Guest Name:</label>
         <input type="text"
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           formControlName="guestName" />
           <div *ngIf="reservationForm.get('guestName')?.invalid && reservationForm.get('guestName')?.touched" 
-          class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert" >Guest Name is required!</div>
+          class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-2" role="alert" >Field required!</div>
       </div>
-      <div class="mb-4">
+      <div class="p-4">
         <label class="block text-gray-700 text-sm font-bold mb-2">Guest Email:</label>
         <input type="email"
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           formControlName="guestEmail" />
           <div *ngIf="reservationForm.get('guestEmail')?.invalid && reservationForm.get('guestEmail')?.touched" 
-          class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert" >Guest Email is required!</div>
+          class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-2" role="alert" >Field required!</div>
       </div>
-      <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2">Room Number:</label>
-        <input type="text"
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          formControlName="roomNumber" />
-          <div *ngIf="reservationForm.get('roomNumber')?.invalid && reservationForm.get('roomNumber')?.touched" 
-          class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert" >Room Number is required!</div>
-      </div>
-      <div class="flex flex-row justify-between items-center">
+
+      <div class="p-4 flex flex-row justify-between items-center">
       <button type="button" [routerLink]="['']"
         class="uppercase text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 rounded-lg text-xs px-5 py-2.5 "
        > back
